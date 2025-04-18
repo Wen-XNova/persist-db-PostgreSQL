@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Notes</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body class="enter">
+    
+    <div class="editContainer">
+            <form id="newPostForm" class="form" method="post" action="/newBook">
+              <div class="inputGroup">
+                <input type="text" name="title" placeholder="Title" required>
+                <input type="text" name="author" placeholder="Author" required>
+                <input type="text" name="isbn" placeholder="ISBN" required>
+              </div>
+                <textarea name="content" placeholder="Content" required rows="12"></textarea>
+                <button class="width" type="submit">
+                  <%= submit %>
+                </button>
+              </form>
+      </div>
+
+</body>
+</html>

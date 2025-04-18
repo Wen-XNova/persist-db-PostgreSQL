@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Book Notes</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&family=Orbitron:wght@400..900&family=Rye&family=Germania+One&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body id="main">
+    
+    <h1>Booknotes</h1>
+
+    <div class="container">
+        <div class="topBtns">
+        <a id="newPostBtn" class="topLink" href="/new" >Add Book</a>
+        <a id="sortOrderBtn" class="topLink" href="/order">Sort by Date</a>
+        </div>
+        
+          </div>
+
+         <% if (book) { %>
+<div class="grid-container">
+    <ul id="bookList">
+        <li class="bookItem">
+            <h2 class="dot"><%= book.title %></h2>
+            <a href="https://openlibrary.org/dev/docs/api/covers">
+            <img class="img" src="<%= image %>" alt="Cover for <%= book.title %>" onload="checkImage(this)" loading="lazy"/>
+            </a>
+        <div class="meta">
+            <small class="sml">By:  <span><%= book.author %></span></small>
+            <small class="sml">ISBN: <span><%= book.isbn %></span></small>
+        </div>
+            <p class="content"><%= book.content %></p>
+        <div class="buttons">
+            <form action="/edit/<%= book.id %>" method="post">
+                <button type="submit" class="edit btn">Edit</button>
+            </form>
+            <form action="/delete/<%= book.isbn %>" method="post">
+                <button type="submit" class="delete btn">Delete</button>
+              </form>        
+        </div>      
+        </li>
+    </ul>
+</div>
+<% } else if (books) { %>
+<div class="grid-container">
+    <ul id="bookList">
+        <% books.forEach((book) => { %>
+            <li class="bookItem">
+                <h2 class="dot"><%= book.title %></h2>
+                <div class="book">
+                    <a href="https://openlibrary.org/dev/docs/api/covers">
+                        <img class="img" id="book-cover" src="<%= book.image %>" alt="Cover for <%= book.title %>" onload="checkImage(this)" loading="lazy"/>
+                    </a>
+            </div>
+                <div class="meta">
+                <small class="sml">By: <span><%= book.author %></span></small>
+                <small class="sml">ISBN:<a class="lnk" href="/get-isbn/<%= book.isbn %>"><%= book.isbn %></a></small>
+            </div>
+                <p class="content"><%= book.content %></p>
+            <div class="buttons">
+                <form action="/edit/<%= book.id %>" method="post">
+                    <button type="submit" class="edit btn">Edit</button>
+                </form>
+                <form action="/delete/<%= book.isbn %>" method="post">
+                    <button type="submit" class="delete btn">Delete</button>
+                </form>                  
+            </div>
+            </li>
+        <% }); %>
+    </ul>
+<% } else { %>
+    <p>No books found.</p>
+<% } %>
+
+         
+    </div>
+   
+
+    <script>
+        function checkImage(img) {
+            if (img.naturalWidth === 1 && img.naturalHeight === 1) {
+                img.src = '/styles/images/noCover.jpeg';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+/* ==============================
+   General Layout and Structure
+   ============================== */
+
+#main {
+    background: linear-gradient(180deg, #000000 10%, #005551 60%, #000a0a 95%);
+    min-height: 100vh;
+    height: auto;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.grid-container {
+    column-count: 2;
+    column-gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2px;
+}
+
+.enter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin: 0;
+    background-image: url(./images/papyrus.jpg);
+    min-height: 100vh;
+    height: auto;
+    background-repeat: no-repeat;
+}
+
+/* ==============================
+   Typography and Text Styling
+   ============================== */
+
+h1 {
+    text-align: center;
+    font-family: "Londrina Sketch", serif;
+    color: rgb(194, 139, 0);
+    font-size: 5rem;
+    margin: 0;
+}
+
+span {
+    color: #2d2d2d;
+}
+
+.content {
+    text-align: center;
+    background-color: rgba(232, 211, 167, 0.7);
+    font-family: "Gentium Book Plus", serif;
+    font-weight: 300;
+    white-space: pre-wrap;
+    border: 2px solid rgb(146, 105, 0);
+    border-radius: 7%;
+    padding: 0 5px 5px 5px;
+}
+
+/* ==============================
+   Form and Input Elements
+   ============================== */
+
+.form {
+    display: grid;
+    grid-template-areas:
+        "inputs"
+        "content"
+        "button";
+    gap: 5px;
+    width: 100%;
+}
+
+.inputGroup {
+    grid-area: inputs;
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+}
+
+.form textarea {
+    grid-area: content;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+}
+
+.form button {
+    grid-area: button;
+    width: 20%;
+    justify-self: end;
+    background-color: rgb(208, 161, 41);
+}
+
+.form button:hover {
+    background-color: rgb(243, 215, 144);
+}
+
+/* ==============================
+   Button Styling
+   ============================== */
+
+.btn, .form button {
+    background-color: rgb(208, 161, 41);
+    border-radius: 20%;
+    margin-bottom: 1px;
+}
+
+.btn:hover, .form button:hover {
+    background-color: rgb(243, 215, 144);
+}
+
+/* ==============================
+   Image and Media
+   ============================== */
+
+
+.img {
+    border: 5px solid rgb(77, 55, 0);
+    padding-bottom: 0px;
+}
+
+
+.bookItem {
+    background-image: url(./images/papyrus.jpg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+/* ==============================
+   Book List and Item Styling
+   ============================== */
+
+#bookList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#bookList li {
+    text-align: center;
+    break-inside: avoid-column;
+    width: 100%;
+    margin-bottom: 15px;
+    border: 2px solid rgb(194, 139, 0);
+    border-radius: 18px;
+    padding: 3px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Single Book List Item Handling */
+.grid-container:has(#bookList li:only-child) {
+    column-count: 1;
+}
+
+.grid-container:has(#bookList li:only-child) #bookList li {
+    width: 100%;
+}
+
+/* ==============================
+   Links and Interactivity
+   ============================== */
+
+.topLink {
+    color: rgb(192, 138, 0);
+    margin-bottom: 2px;
+}
+
+.topLink:hover {
+    color: rgb(255, 210, 96);
+}
+
+.lnk {
+    color: rgb(96, 69, 0);
+    text-decoration: none;
+}
+
+.lnk:hover {
+    color: rgb(255, 224, 144);
+}
+
+/* ==============================
+   Flexbox Layouts and Alignment
+   ============================== */
+
+.meta, .buttons, .topBtns {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* ==============================
+   Special Elements Styling
+   ============================== */
+
+.dot {
+    font-family: "Rye", serif;
+    font-weight: 400;
+    font-style: bold;
+    background-color: rgba(194, 139, 0, .5);
+}
+
+.sml {
+    background-color: rgba(194, 139, 0, .9);
+    font-family: "Germania One", serif;
+    font-weight: 400;
+}
+
+

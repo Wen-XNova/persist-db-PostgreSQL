@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body class="enter">
+    <div class="editContainer">
+    <% if (locals.book) { %>
+      <form id="editForm" class="form" method="post" action="/update/<%=book.id%>">
+        <div class="inputGroup">
+          <input type="text" name="title" value="<%=book.title %>">
+          <input type="text" name="author" value="<%=book.author %>">
+          <input type="text" name="isbn" value="<%=book.isbn %>">
+        </div>
+          <textarea name="content" rows="12"><%=book.content %></textarea>
+          <button class="full-width" type="submit">
+            <%= submit %>
+          </button>
+      </form>
+        <% } else {%>
+            No book found
+        <% } %>
+    </div>
+</body>
+</html>
